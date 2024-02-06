@@ -1,0 +1,40 @@
+* What is =antarli.py=?
+
+There is an unexplored niche in the Indic language digital landscape: 
+1. google translate is good for translation between Indic languages
+2. google input tools is good for /transliteration/ for the user.
+3. The fantastic [[http://aksharamukha.appspot.com/plugin][aksharamukha]] helps to render any Indic language website accessible in any other Indic script.
+
+But there is no way for a user to type/paste a piece of text in one Indic language and have it render in another. Who would want to use such a tool? Someone like me! I understand Tamizh, but I can't read the Tamizh script. If only there was a simple way of rendering Tamizh text in Devanagari! Or my mother, who can't read Kannada, but understands the langugage. What if she could simply read Kannada texts in Devanagari!
+
+* What scripts does =antarli.py= support
+
+Current scripts are 
+- Devanagari
+- Bengali
+- Gurmukhi
+- Gujarati
+- Oriya
+- Tamil
+- Telugu
+- Kannada
+- Malayalam
+
+* Run this script locally
+The front end uses the excellent streamlit library.
+
+Install streamlit using
+#+begin_src bash
+pip install streamlit
+#+end_src
+
+and run the app by typing
+
+#+begin_src bash
+streamlit run antarli.py
+#+end_src
+
+
+
+
+
