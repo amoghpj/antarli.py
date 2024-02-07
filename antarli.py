@@ -113,7 +113,8 @@ for row in r:
 page = st.sidebar.selectbox("Navigate", ["AntarLipy","About"])
 
 if page == "AntarLipy":
-    st.title("AntarLi.py - Read any Indic text in your favorite script!")
+    st.title("AntarLi.py")
+    st.markdown("## Render Indic text in your favorite script!")
     
     col1, col2 = st.columns(2)
 
