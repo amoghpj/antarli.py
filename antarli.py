@@ -114,18 +114,23 @@ page = st.sidebar.selectbox("Navigate", ["AntarLipy","About"])
 
 if page == "AntarLipy":
     st.title("AntarLi.py - Read any Indic text in your favorite script!")
-    inputstring = st.text_input("Please enter text", "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः")
-    # st.markdown(f"{inputstring}") 
+    target = st.selectbox("Select target language", unicode_space.keys())
+    col1, col2 = st.columns(2)
+
+    with col1:
+       #st.header("Input Text")
+       inputstring = st.text_area("Please enter text", "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः")
     lang = get_scripts(inputstring)
     if len(lang) == 1:
         st.markdown(f"`Current script is {lang[0]}`")
     else:
         st.markdown(f"`Current text has multiple scripts: {lang}`")
 
-    target = st.selectbox("Select target language", unicode_space.keys())
-
-    converted = convert_to_target(inputstring, target)
-    st.markdown(converted)
+    with col2:
+       #st.header("Converted:")
+       st.markdown(f"Rendered in {target}")
+       converted = convert_to_target(inputstring, target)
+       st.markdown(converted)
 else:
     st.title("Welcome to AntarLi.py!")
     st.markdown("This tool was built by [Amogh Jalihal](https://amoghjalihal.com). \n\nYou can find the source code here: https://github.com/amoghpj/antarli.py\n\nAlways happy to implement new features, so leave a note with any suggestions and feedback!")
