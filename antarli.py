@@ -114,21 +114,21 @@ page = st.sidebar.selectbox("Navigate", ["AntarLipy","About"])
 
 if page == "AntarLipy":
     st.title("AntarLi.py - Read any Indic text in your favorite script!")
-    target = st.selectbox("Select target language", unicode_space.keys())
+    
     col1, col2 = st.columns(2)
 
     with col1:
-       #st.header("Input Text")
-       inputstring = st.text_area("Please enter text", "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः")
+        #st.header("Input Text")
+        inputstring = st.text_area("Please enter text\n(on mobile, tap anywhere outside the text box when you are done)", "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः")
+        
     lang = get_scripts(inputstring)
     if len(lang) == 1:
-        st.markdown(f"`Current script is {lang[0]}`")
+        st.markdown(f"`detected {lang[0]}`")
     else:
-        st.markdown(f"`Current text has multiple scripts: {lang}`")
+        st.markdown(f"`detected multiple scripts: {lang}`")
 
     with col2:
-       #st.header("Converted:")
-       st.markdown(f"Rendered in {target}")
+       target = st.selectbox("Render in", unicode_space.keys())
        converted = convert_to_target(inputstring, target)
        st.markdown(converted)
 else:
