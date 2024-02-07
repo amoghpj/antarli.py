@@ -1,0 +1,8 @@
+spec:
+  name: antarlipy
+  services:
+  - dockerfile_path: Dockerfile
+    git:
+      branch: main
+      repo_clone_url: https://github.com/amoghpj/antarli.py.git
+    name: antarlipy
