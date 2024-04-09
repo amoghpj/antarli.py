@@ -27,6 +27,7 @@ get meaningfully mapped and will fail to render.
 """
 from ast import literal_eval
 import streamlit as st
+import clipboard
 
 r= [["देवनागरी", "0900", "097F"], 
    ["বাংলা", "0980", "09FF"], 
@@ -66,6 +67,9 @@ def get_scripts(s):
                 lang.append(l)
                 lang = list(set(lang))
     return(lang)
+
+def on_copy_click(text):
+    clipboard.copy(text)
 
 def convert_to_target(string, target):
     """
@@ -129,9 +133,10 @@ if page == "AntarLipy":
         st.markdown(f"`detected multiple scripts: {lang}`")
 
     with col2:
-       target = st.selectbox("Render in", unicode_space.keys())
-       converted = convert_to_target(inputstring, target)
-       st.markdown(converted)
+        target = st.selectbox("Render in", unicode_space.keys())
+        converted = convert_to_target(inputstring, target)
+        st.button("Copy to clipboard 📋", key="copy",on_click=on_copy_click, args=(converted,))
+        st.markdown(converted)
 else:
     st.title("Welcome to AntarLi.py!")
     st.markdown("This tool was built by [Amogh Jalihal](https://amoghjalihal.com). \n\nYou can find the source code here: https://github.com/amoghpj/antarli.py\n\nAlways happy to implement new features, so leave a note with any suggestions and feedback!")
