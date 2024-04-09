@@ -135,7 +135,7 @@ if page == "AntarLipy":
     with col2:
         target = st.selectbox("Render in", unicode_space.keys())
         converted = convert_to_target(inputstring, target)
-        st.button("Copy to clipboard 📋", key="copy",on_click=on_copy_click, args=(converted,))
+        # st.button("Copy to clipboard 📋", key="copy",on_click=on_copy_click, args=(converted,))
         st.markdown(converted)
 else:
     st.title("Welcome to AntarLi.py!")

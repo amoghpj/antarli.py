@@ -3,7 +3,7 @@ FROM python:3.11
 # WORKDIR /
 
  COPY . .
-RUN sudo apt install xclip
+# RUN sudo apt install xclip
 RUN python -m pip install --upgrade pip
 RUN python -m pip install -r requirements.txt
 
